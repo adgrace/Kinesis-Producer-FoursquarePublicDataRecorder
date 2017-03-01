@@ -1,6 +1,8 @@
 /*
  * Copyright 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
+ * Further developed & adapted by Alex Grace for research purposes only. (ag00248@surrey.ac.uk)
+ *
  * Licensed under the Amazon Software License (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
@@ -13,7 +15,7 @@
  * permissions and limitations under the License.
  */
 
-package com.amazonaws.kinesis.dataviz.producer;
+package com.alexgrace.finalyearproject.kinesisproducer.producer;
 
 import java.nio.ByteBuffer;
 
@@ -27,7 +29,7 @@ public class Event {
 		this.partitionKey = partitionKey;
 		this.data = data;
 	}
-	
+
 	/**
 	 * @param partitionKey The partition key
 	 * @param data The byte buffer
@@ -37,13 +39,13 @@ public class Event {
 		this.partitionKey = partitionKey;
 		this.data = ByteBuffer.wrap(data.getBytes());
 	}
-	
+
 
 	/**
 	 * The partition key to use
 	 */
 	private String partitionKey;
-	
+
 	/**
 	 * The payload containing the data sent to Kinesis
 	 */

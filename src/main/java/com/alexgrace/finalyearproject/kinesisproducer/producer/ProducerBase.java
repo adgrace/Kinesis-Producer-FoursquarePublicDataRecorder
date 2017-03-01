@@ -1,6 +1,8 @@
 /*
  * Copyright 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
+ * Further developed & adapted by Alex Grace for research purposes only. (ag00248@surrey.ac.uk)
+ *
  * Licensed under the Amazon Software License (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
@@ -13,7 +15,7 @@
  * permissions and limitations under the License.
  */
 
-package com.amazonaws.kinesis.dataviz.producer;
+package com.alexgrace.finalyearproject.kinesisproducer.producer;
 
 import java.util.concurrent.BlockingQueue;
 
@@ -35,19 +37,19 @@ public class ProducerBase implements Runnable {
 	 * Reference to the queue
 	 */
 	private final BlockingQueue<Event> eventsQueue;
-	
-	
+
+
 	/**
 	 * Reference to the Amazon Kinesis Client
 	 */
 	private final AmazonKinesis kinesisClient;
-	
-	
+
+
 	/**
 	 * The stream name that we are sending to
 	 */
 	private final String streamName;
-	
+
 	private final static Logger logger = LoggerFactory
 			.getLogger(ProducerBase.class);
 
@@ -82,11 +84,11 @@ public class ProducerBase implements Runnable {
 				put.setPartitionKey(event.getPartitionKey());
 
 				PutRecordResult result = kinesisClient.putRecord(put);
-				logger.info(result.getSequenceNumber() + ": {}", this);	
+				logger.info(result.getSequenceNumber() + ": {}", this);
 
 			} catch (Exception e) {
 				// didn't get record - move on to next\
-				e.printStackTrace();		
+				e.printStackTrace();
 			}
 		}
 

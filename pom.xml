@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Kinesis Data Visualisation Demo</name>
   <description>Kinesis Data Visualisation Demo</description>
-  
+
   <properties>
   		<jdk.version>1.6</jdk.version>
 		<!-- Logging -->
@@ -28,7 +28,7 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
- 
+
 			<!-- Make this jar executable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -39,13 +39,13 @@
 					<manifest>
 						<!-- Jar file entry point -->
 						<addClasspath>true</addClasspath>
-						<mainClass>com.amazonaws.kinesis.dataviz.twitter.TwitterProducer</mainClass>
+						<mainClass>com.alexgrace.finalyearproject.kinesisproducer.twitter.TwitterProducer</mainClass>
 						<classpathPrefix>dependency-jars/</classpathPrefix>
 					</manifest>
 				  </archive>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Copy project dependency -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -66,18 +66,18 @@
 				  </execution>
 				</executions>
 			</plugin>
- 
+
 		</plugins>
 	</build>
 
-	<dependencies>	
+	<dependencies>
 		<!-- Twitter Hosebird Client -->
 		<dependency>
 			<groupId>com.twitter</groupId>
 			<artifactId>hbc-core</artifactId>
 			<version>LATEST</version>
 		</dependency>
-	
+
 		<!-- AWS Java SDK -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
@@ -92,7 +92,7 @@
 			<version>${slf4j.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>

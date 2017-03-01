@@ -1,6 +1,8 @@
 /*
  * Copyright 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
+ * Further developed & adapted by Alex Grace for research purposes only. (ag00248@surrey.ac.uk)
+ *
  * Licensed under the Amazon Software License (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
@@ -13,14 +15,12 @@
  * permissions and limitations under the License.
  */
 
-package com.amazonaws.kinesis.dataviz.twitter;
+package com.alexgrace.finalyearproject.kinesisproducer.twitter;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -28,27 +28,22 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.amazonaws.kinesis.dataviz.producer.ProducerBuilder;
-import com.amazonaws.kinesis.dataviz.producer.ProducerClient;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
+import com.alexgrace.finalyearproject.kinesisproducer.producer.ProducerBuilder;
+import com.alexgrace.finalyearproject.kinesisproducer.producer.ProducerClient;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
 import com.twitter.hbc.core.Constants;
-import com.twitter.hbc.core.endpoint.Location;
-import com.twitter.hbc.core.endpoint.Location.Coordinate;
 import com.twitter.hbc.core.endpoint.StatusesFilterEndpoint;
 import com.twitter.hbc.core.processor.StringDelimitedProcessor;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 
 public class TwitterProducer {
-	
+
 	private static final String TWIT_SECRET = "twitter.secret";
 	private static final String TWIT_TOKEN = "twitter.token";
 	private static final String TWIT_CONSUMER_SECRET = "twitter.consumerSecret";
 	private static final String TWIT_CONSUMER_KEY = "twitter.consumerKey";
-	private static final String HASHTAGS = "twitter.hashtags";
 	private static final String STREAM_NAME = "aws.streamName";
 	private static final String DEFAULT_PROP_FILE_NAME = "AwsUserData";
 	private static final String REGION_NAME = "aws.regionName";
@@ -70,7 +65,7 @@ public class TwitterProducer {
 		String secret = System.getProperty(TWIT_SECRET);
 		String streamName = System.getProperty(STREAM_NAME);
 		String regionName = System.getProperty(REGION_NAME);
-		
+
 		while (true) {
 			/**
 			 * Set up your blocking queues: Be sure to size these properly based
@@ -84,7 +79,7 @@ public class TwitterProducer {
 			 * authentication (basic auth or oauth)
 			 */
 			StatusesFilterEndpoint endpoint = new StatusesFilterEndpoint();
-			
+
 			// Track  anything that is geo-tagged
 			endpoint.addQueryParameter("track", "swarmapp com");
 
@@ -98,10 +93,10 @@ public class TwitterProducer {
 					.processor(new StringDelimitedProcessor(msgQueue)).build();
 
 			client.connect();
-			
+
 
 			LOG.info("Got connection to Twitter");
-			
+
 			// create producer
 			ProducerClient producer = new ProducerBuilder()
 					.withName("Twitter")
@@ -109,9 +104,9 @@ public class TwitterProducer {
 					.withRegion(regionName)
 					.withThreads(10)
 					.build();
-			
+
 			producer.connect();
-			
+
 			LOG.info("Got connection to Kinesis");
 
 			try {
@@ -132,22 +127,22 @@ public class TwitterProducer {
 	private boolean process(BlockingQueue<String> msgQueue, ProducerClient producer) {
 
 		int exceptionCount = 0;
-		
+
 		while (true) {
 			try {
 				// get message HBC from queue
 				String msg = msgQueue.take();
-				
+
 				// use 'random' partition key
 				String key = String.valueOf(System.currentTimeMillis());
-				
+
 				// send to Kinesis
 				producer.post(key, msg);
-				
+
 			} catch (Exception e) {
 				// didn't get record - move on to next\
 				e.printStackTrace();
-				
+
 				if(++exceptionCount > 5) {
 					// too many exceptions - lets reconnect and try again
 					return false;
@@ -156,15 +151,15 @@ public class TwitterProducer {
 		}
 
 	}
-	
+
 	private void loadFileProperties(String propFilePath, String defaultName) {
 		try {
-			
+
 			if(propFilePath == null){
 				String userHome = System.getProperty("user.home");
 				propFilePath = userHome + "/" + defaultName + ".properties";
 			}
-			
+
 			InputStream propFile = new FileInputStream(propFilePath);
 
 			Properties p = new Properties(System.getProperties());

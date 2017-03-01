@@ -1,6 +1,8 @@
 /*
  * Copyright 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
+ * Further developed & adapted by Alex Grace for research purposes only. (ag00248@surrey.ac.uk)
+ *
  * Licensed under the Amazon Software License (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
@@ -13,7 +15,7 @@
  * permissions and limitations under the License.
  */
 
-package com.amazonaws.kinesis.dataviz.producer;
+package com.alexgrace.finalyearproject.kinesisproducer.producer;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -65,7 +67,7 @@ public class ProducerBuilder {
 
 	/**
 	 * Builds the producer client
-	 * 
+	 *
 	 * @return A new producer client
 	 */
 	public ProducerClient build() {

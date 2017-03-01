@@ -1,6 +1,8 @@
 /*
  * Copyright 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
+ * Further developed & adapted by Alex Grace for research purposes only. (ag00248@surrey.ac.uk)
+ *
  * Licensed under the Amazon Software License (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
@@ -13,7 +15,7 @@
  * permissions and limitations under the License.
  */
 
-package com.amazonaws.kinesis.dataviz.producer;
+package com.alexgrace.finalyearproject.kinesisproducer.producer;
 
 import java.nio.ByteBuffer;
 
@@ -28,29 +30,29 @@ public interface Producer {
 	 * @param data The event data, represented as a string
 	 */
 	void post(String partitionKey, String data);
-	
+
 	/**
 	 * Posts an event to Kinesis
 	 * @param partitionKey The partition key to use
 	 * @param data The event data, represented as a byte buffer
 	 */
 	void post(String partitionKey, ByteBuffer data);
-	
+
 	/**
 	 * Posts an event to Kinesis
 	 * @param event The event data
 	 */
 	void post(Event event);
-	
-	
+
+
 	/**
 	 * Connects to Kinesis and starts listening for events to send
 	 */
 	void connect();
-	
+
 	/**
 	 * Stops listening for events
 	 */
 	void stop();
-	
+
 }
