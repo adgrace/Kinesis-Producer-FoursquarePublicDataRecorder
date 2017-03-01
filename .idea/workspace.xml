@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77447648-d42f-44d9-9699-444cbb5e253e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AwsUserData.properties" afterPath="$PROJECT_DIR$/KinesisProducer.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/amazonaws/kinesis/dataviz/producer/Event.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/Event.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/amazonaws/kinesis/dataviz/producer/Producer.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/Producer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/amazonaws/kinesis/dataviz/producer/ProducerBase.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/ProducerBase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/amazonaws/kinesis/dataviz/producer/ProducerBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/ProducerBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/amazonaws/kinesis/dataviz/producer/ProducerClient.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/ProducerClient.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/amazonaws/kinesis/dataviz/twitter/TwitterProducer.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/twitter/TwitterProducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,11 +19,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="KinesisProducer.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KinesisProducer.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KinesisProducer.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -132,6 +136,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/ProducerBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/ProducerBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisproducer/producer/ProducerClient.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -149,7 +154,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="11" />
+    <option name="x" value="-2" />
     <option name="y" value="23" />
     <option name="width" value="1901" />
     <option name="height" value="1053" />
@@ -741,15 +746,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488337503977</updated>
-      <workItem from="1488337509147" duration="1032000" />
+      <workItem from="1488337509147" duration="1565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1032000" />
+    <option name="totallyTimeSpent" value="1565000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="11" y="23" width="1901" height="1053" extended-state="0" />
+    <frame x="-2" y="23" width="1901" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -869,7 +874,15 @@
     <entry file="file://$PROJECT_DIR$/KinesisProducer.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="29" />
           <folding />
         </state>
       </provider>
